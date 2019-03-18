@@ -1,16 +1,16 @@
 {
-  "name": "f-cli",
+  "name": "fw-cli",
   "version": "1.0.0",
   "description": "生成框架脚手架",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./bin/f-cli.js create"
+    "start": "node ./bin/fw-cli.js create"
   },
   "author": "dusunboy",
   "license": "ISC",
   "bin": {
-    "f-cli": "./bin/f-cli.js"
+    "f-cli": "./bin/fw-cli.js"
   },
   "dependencies": {
     "chalk": "^2.4.2",

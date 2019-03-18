@@ -32,7 +32,7 @@ const final = require('./final')
  */
 
 this.commander = commander;
-this.version_url = `https://registry.npmjs.org/x-build/latest`;
+this.version_url = `https://registry.npmjs.org/fw-cli/latest`;
 this.spinner = new ora();
 this.progress = 1;
 this.progressCurrent = 0;
