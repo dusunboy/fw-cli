@@ -8,7 +8,11 @@
     "start": "node ./bin/fw-cli.js create"
   },
   "author": "dusunboy",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dusunboy/fw-cli.git"
+  },
+  "license": "MIT",
   "bin": {
     "f-cli": "./bin/fw-cli.js"
   },
