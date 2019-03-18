@@ -1,6 +1,6 @@
 {
   "name": "fw-cli",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "生成框架脚手架",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,7 @@
   },
   "license": "MIT",
   "bin": {
-    "f-cli": "./bin/fw-cli.js"
+    "fw-cli": "./bin/fw-cli.js"
   },
   "dependencies": {
     "chalk": "^2.4.2",

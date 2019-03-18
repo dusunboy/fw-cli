@@ -20,30 +20,21 @@ const final = require('./final')
  * @param {git}: 默认git仓库模板
  * @param {commander}: commander模块
  * @param {spinner}: 安装进度提示工具
- * @param {progress}: 安装进度 默认2 github模板、devDependencies
- * @param {progressCurrent}: 当前进度 默认0 从拉取模板开始增加
  * @param {answers}[Object]: 全部选项答案
  * @param {installBaseType}: 默认包管理器
  * @param {installType}: 命令 = 包管理器名 + 安装dependencies命令
  * @param {installDevType}: 命令 = 包管理器名 + 安装devDependencies命令
- * @param {dependencies}[Array]: 运行依赖
- * @param {devDependencies}[Array]: 开发依赖
- * @param {cssExt}: 样式文件类型
+ * @param {pkg}: 项目配置文件
  */
 
 this.commander = commander;
 this.version_url = `https://registry.npmjs.org/fw-cli/latest`;
 this.spinner = new ora();
-this.progress = 1;
-this.progressCurrent = 0;
 this.answers = {};
 this.installBaseType = '';
 this.installType = '';
 this.installDevType = '';
 this.pkg = pkg;
-// this.dependencies = [];
-// this.devDependencies = [];
-// this.cssExt = '';
 
 // 初始化指令
 this.commander

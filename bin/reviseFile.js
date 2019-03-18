@@ -1,5 +1,4 @@
 import fs from "fs-extra"
-import chalk from "chalk"
 
 /**
  * 修改新生成项目的一些基本配置
@@ -12,7 +11,7 @@ const reviseFile = (that) => {
       reviseMyMiniprogramFramework(that, path).then((res) => {
         resolve()
       }).catch((error) => {
-        reject()
+        reject(error)
       })
     }
   })
@@ -32,8 +31,6 @@ const reviseMyMiniprogramFramework = (that, path) => {
       _data.author = '';
       _data.description = '小程序轻量级框架';
       _data.name = that.answers.name;
-      that.dependencies = _data.dependencies
-      that.devDependencies = _data.devDependencies
       _data = JSON.stringify(_data, null, 4);
       fs.writeFile(_path, _data, error => (error ? reject(error) : resolve()));
     });

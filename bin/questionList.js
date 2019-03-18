@@ -18,10 +18,7 @@ const question = {
     type: 'input',
     message: `请输入项目名称`,
     name: 'name',
-    // validate: (value = '') => value == '1' || 'Pass a valid hex value'
     validate: (input) => {
-      // let done = this.async();
-      // done('You need to provide a number');
       if (input == '') {
         return '项目名称不能为空';
       } else {
@@ -54,9 +51,6 @@ const questionList = (that) => {
         msg.line();
         resolve();
       })
-    } else {
-      msg.fail(that.spinner, `请检查指令参数是否正确！`);
-      process.exit();
     }
   });
 }

@@ -12,11 +12,10 @@ const msg = util.msg
  */
 
 const copyTemp = (that) => {
-  const src = path.resolve(__dirname, `../framework/${that.answers.project}`);
+  const src = path.resolve(__dirname, `${process.cwd()}/framework/${that.answers.project}`);
   const dest = path.resolve(process.cwd(), that.answers.name);
   return new Promise(resolve => {
     downloadTemp(that).then(() => {   
-      // that.spinner.start(`[${that.progressCurrent}/${that.progress}] 正在拷贝模板文件...`);
       that.spinner.start(`正在生成项目...`);
       fs.copy(src, dest)
         .then(() => {    
@@ -40,12 +39,12 @@ const copyTemp = (that) => {
  */
 const downloadTemp = (that) => {
   return new Promise((resolve, reject) => {
-    that.spinner.start(`正载下载${that.answers.project}源码`);
+    that.spinner.start(`正在下载${that.answers.project}源码`);
     let repoUrl = ''
     if (that.answers.project == 'MyMiniprogramFramework') {
       repoUrl = 'dusunboy/MyMiniprogramFramework'
     }
-    download(repoUrl, `framework/${that.answers.project}`, (res) => {
+    download(repoUrl, `${process.cwd()}/framework/${that.answers.project}`, (res) => {
       if(!res) {
         // 可以输出一些项目成功的信息
         that.spinner.succeed([chalk.green(`下载成功`)]);
