@@ -1,5 +1,6 @@
 import os from "os"
 import nodeCmd from "node-cmd"
+import path from "path"
 
 /**
  * @description: 使用 cmd 安装项目依赖
@@ -7,6 +8,7 @@ import nodeCmd from "node-cmd"
 function install(that) {
   return new Promise(resolve => {
     if (that.answers.project == 'MyMiniprogramFramework') {
+      that.spinner.start(`正在安装依赖...`);
       let cmdStr = that.installBaseType;
       cmd([`cd ${that.answers.name}`, cmdStr]).then(() => {
         resolve()
@@ -21,6 +23,17 @@ function install(that) {
       }).catch(error => {
         reject(error)
       })
+    } else if (that.answers.project == 'MyFlaskReact') {
+      that.spinner.start(`正在安装依赖...`);
+      let cmdStr = that.installBaseType;
+      let _path = path.join(that.answers.name, 'www', 'frontend')
+      cmd([`cd ${_path}`, cmdStr]).then(() => {
+        resolve()
+      }).catch(error => {
+        reject(error)
+      })
+    } if (that.answers.project == 'MyAndroidMVPTemplates') {
+      resolve()
     }
   });
 }

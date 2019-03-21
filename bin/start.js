@@ -18,7 +18,7 @@ const start = (that) => {
       util.checkVersion(that).then(() => {        
         resolve();
       }, version => {
-        msg.fail(that.spinner, `请将${that.pkg.name}更新到最新版本(v${version})`);
+        msg.fail(that.spinner, `请将${that.pkg.name}更新到最新版本(v${version}) npm update -g fw-cli`);
         process.exit();
       }).finally(() => {
         that.spinner.stop();
