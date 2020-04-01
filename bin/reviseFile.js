@@ -49,16 +49,31 @@ const reviseFile = (that) => {
  */
 const reviseMyMiniprogramFramework = (that, _path) => {
   return new Promise((resolve, reject) => {
-    _path = _path + '/package.json';
-    fs.readFile(_path, (err, data) => {
-      if (err) reject(err);
-      let _data = JSON.parse(data.toString());
-      _data.author = '';
-      _data.description = '小程序轻量级框架';
-      _data.name = that.answers.name.toLowerCase()
-      _data = JSON.stringify(_data, null, 4);
-      fs.writeFile(_path, _data, error => (error ? reject(error) : resolve()));
-    });
+    // fs.readFile(_path, (err, data) => {
+      //   if (err) reject(err);
+      //   let _data = JSON.parse(data.toString());
+      //   _data.author = '';
+      //   _data.description = '小程序轻量级框架';
+      //   _data.name = that.answers.name.toLowerCase()
+      //   _data = JSON.stringify(_data, null, 4);
+      // });
+      // fs.writeFile(_path, _data, error => (error ? reject(error) : resolve()));
+    let path = _path + '/package.json';
+    let data = fs.readFileSync(path)
+    let _data = JSON.parse(data.toString());
+    _data.author = '';
+    _data.description = '小程序轻量级框架';
+    _data.name = that.answers.name.toLowerCase()
+    _data = JSON.stringify(_data, null, 4);
+    fs.writeFileSync(path, _data)
+    path = _path + '/project.config.json';
+    data = fs.readFileSync(path)
+    _data = JSON.parse(data.toString());
+    _data.projectname = that.answers.name
+    _data = JSON.stringify(_data, null, 4);
+    fs.writeFileSync(path, _data)
+    resolve()
+
   })
 }
 
